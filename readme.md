@@ -10,18 +10,18 @@
 | **无线网卡** | Intel AC 8265 PCIe | ✅ 已驱动 |
 | **蓝牙** | Intel AC 8265 (USB) | ✅ 已驱动 |
 | **存储** | SATA SSD | ✅ 正常工作 |
-| **触摸屏** | 单点触控 (USB) | ✅ 已驱动 |
+| **触摸屏** |  USB | ✅ 已驱动 |
 | **触摸板** | SMBus 协议 | ✅ 已驱动 |
 | **有线网卡** | Realtek RTL8111 | ✅ 已驱动 |
 | **读卡器** | Realtek Card Reader | ✅ 已驱动 |
-| **独显** | NVIDIA GT 740M | ❌ 已屏蔽 |
+| **独显** | NVIDIA GT 735M | ❌ 已屏蔽 |
 
 ## 📋 功能状态 | Features Status
 
 ### ✅ 正常工作 | Working Features
 - 系统启动 | System Boot
 - 显卡加速 (HD 4000) | Graphics Acceleration
-- 无线网络 (Intel 8265) | Wi-Fi
+- 无线网络 (Intel ac 8265) | Wi-Fi
 - 蓝牙 | Bluetooth
 - 触摸板 (VoodooPS2 + VoodooSMBus) | TouchPad
 - 触摸屏 (VoodooI2C) | Touch Screen
@@ -53,61 +53,52 @@
 # 或使用ProperTree/OpenCore Configurator
 ```
 
-#### 1.2 显卡配置
-- DeviceProperties → AAPL,ig-platform-id: `0600260A`
-- 已配置帧缓冲补丁
 
-#### 1.3 音频配置
-当前使用引导参数：`alcid=27`
+## 🙏 致谢 | Credits
 
-### 3. 内核扩展说明 | Kernel Extensions Details
+本项目的成功得益于众多优秀的开源项目与开发者。在此，我们向所有为 Hackintosh 社区做出贡献的人们表示最诚挚的感谢。
 
-#### 3.1 必需驱动 | Required Drivers
-| 驱动名称 | 版本 | 功能 |
-|----------|------|------|
-| **Lilu.kext** | 最新版 | 基础补丁框架 |
-| **VirtualSMC.kext** | 最新版 | SMC模拟 |
-| **WhateverGreen.kext** | 最新版 | 显卡修复 |
-| **AppleALC.kext** | 1.7.8+ | 音频驱动 (使用AppleALCU.kext替代) |
-| **VoodooPS2Controller.kext** | 最新版 | PS2输入设备 |
-| **VoodooSMBus.kext** | 最新版 | SMBus触摸板 |
+### 🛠️ 核心项目 | Core Projects
+以下项目是本 EFI 得以运行的基石：
+| 项目 | 
+| :--- | 
+| [**OpenCore**](https://github.com/acidanthera/OpenCorePkg) |
+| [**Lilu**](https://github.com/acidanthera/Lilu) | **Acidanthera** |
+| [**WhateverGreen**](https://github.com/acidanthera/WhateverGreen) |
+| [**AppleALC**](https://github.com/acidanthera/AppleALC) |
+| [**VirtualSMC**](https://github.com/acidanthera/VirtualSMC) |
+| [**VoodooI2C**](https://github.com/VoodooI2C/VoodooI2C) |
+| [**VoodooPS2**](https://github.com/acidanthera/VoodooPS2) |
+| [**VoodooSMBus**](https://github.com/VoodooSMBus/VoodooSMBus) |
+| [**VoodooRMI**](https://github.com/VoodooSMBus/VoodooRMI) |
+| [**IntelBluetoothFirmware**](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) |
+| [**AirportItlwm**](https://github.com/OpenIntelWireless/itlwm) |
+| [**RealtekRTL8111**](https://github.com/Mieze/RTL8111_driver_for_OS_X) |
+| [**VoodooInput**](https://github.com/acidanthera/VoodooInput) |
+| [**RealtekCardReader**](https://github.com/0xFireWolf/RealtekCardReader) |
+| [**ECEnabler**](https://github.com/1Revenger1/ECEnabler) |
+| [**BrightnessKeys**](https://github.com/acidanthera/BrightnessKeys) |
+| [**WhateverGreen**](https://github.com/acidanthera/WhateverGreen) |
 
-#### 3.2 无线和蓝牙 | Wi-Fi & Bluetooth
-| 驱动名称 | 功能 | 备注 |
-|----------|------|------|
-| **AirportItlwm.kext** | Intel无线驱动 | Catalina专用版 |
-| **itlwm.kext** | Intel无线驱动 | 备用 |
-| **IntelBluetoothFirmware.kext** | 蓝牙固件 | |
-| **IntelBluetoothInjector.kext** | 蓝牙注入 | |
-| **IntelBTPatcher.kext** | 蓝牙补丁 | 可选 |
 
-#### 3.3 触摸屏和I2C | Touch Screen & I2C
-| 驱动名称 | 功能 |
-|----------|------|
-| **VoodooI2C.kext** | I2C总线驱动 |
-| **VoodooI2CHID.kext** | HID触摸设备 |
-| **VoodooI2CELAN.kext** | ELAN触摸屏 |
-| **VoodooI2CSynaptics.kext** | Synaptics触摸屏 |
-| **VoodooI2CFTE.kext** | FTE触摸屏 |
-| **VoodooI2CAtmelMXT.kext** | Atmel触摸屏 |
-| **VoodooRMI.kext** | RMI协议支持 |
-| **VoodooInput.kext** | 输入框架 |
 
-#### 3.4 其他硬件 | Other Hardware
-| 驱动名称 | 功能 |
-|----------|------|
-| **RealtekRTL8111.kext** | 有线网卡 |
-| **RealtekCardReader.kext** | SD卡读卡器 |
-| **SMCBatteryManager.kext** | 电池管理 |
-| **SMCProcessor.kext** | 处理器监控 |
-| **SMCSuperIO.kext** | Super I/O监控 |
+### 🧰 实用工具 | Utilities
+以下工具在配置和排错过程中不可或缺：
+| 工具 |
+| :--- | 
+| [**ProperTree**](https://github.com/corpnewt/ProperTree) |
+| [**OpenCore Configurator (OCC)**](https://mackie100projects.altervista.org/opencore-configurator/) | 
+| [**Hackintool**](https://github.com/headkaze/Hackintool) |
+| [**OCAT**](https://github.com/ic005k/OCAuxiliaryTools) |
+| [**SSDTTime**](https://github.com/corpnewt/SSDTTime) |
+| [**ssdtPRGen**](https://github.com/Piker-Alpha/ssdtPRGen.sh) |
 
-#### 3.5 实用工具 | Utilities
-| 驱动名称 | 功能 |
-|----------|------|
-| **ECEnabler.kext** | 嵌入式控制器 |
-| **BrightnessKeys.kext** | 亮度快捷键 |
-| **DebugEnhancer.kext** | 调试增强 |
+### 📚 学习指南 | Guides & Resources
+我们的配置深受以下卓越指南和社区资源的影响：
+- **[Dortania‘s OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** - OpenCore 安装指南。
+
+*（如果您认为有项目被遗漏或链接有误，请通过邮件联系我们进行更新。）*
+
 
 ## ⚠️ 重要提醒 | Important Notes
 
