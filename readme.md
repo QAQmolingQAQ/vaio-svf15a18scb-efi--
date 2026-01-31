@@ -6,7 +6,7 @@
 |------|------|------|
 | **CPU** | Intel Core i5-3337U (Ivy Bridge) | ✅ 正常工作 |
 | **集成显卡** | Intel HD Graphics 4000 | ✅ 已驱动 |
-| **主板芯片组** | Intel HM76 | ✅ 正常工作 |
+| **主板芯片组** | Intel HM76 |  |
 | **无线网卡** | Intel AC 8265 PCIe | ✅ 已驱动 |
 | **蓝牙** | Intel AC 8265 (USB) | ✅ 已驱动 |
 | **存储** | SATA SSD | ✅ 正常工作 |
@@ -35,7 +35,7 @@
 
 ### ❌ 不正常工作 | Not Working
 - **AirDrop** - Intel网卡不支持原生AirDrop
-- **NVIDIA 独立显卡** - 已通过SSDT屏蔽
+- **NVIDIA 独立显卡** - 已屏蔽
 
 ### ⚠️ 部分工作 | Partially Working
 - 隔空播放 | AirPlay (有限支持)
