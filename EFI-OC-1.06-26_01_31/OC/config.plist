@@ -391,10 +391,14 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x16,0x0)</key>
+			<key>PciRoot(0x0)/Pci(0x1B,0x0)</key>
 			<dict>
-				<key>device-id</key>
-				<data>GwAA</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,27,0</string>
+				<key>device-type</key>
+				<string>Audio device</string>
+				<key>layout-id</key>
+				<data>GwAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
